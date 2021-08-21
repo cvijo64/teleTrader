@@ -2,6 +2,7 @@ package com.example.teletrader.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,7 @@ public class CustomAdapter extends ArrayAdapter<Symbol> implements View.OnClickL
 
     private int lastPosition = -1;
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
@@ -68,17 +70,14 @@ public class CustomAdapter extends ArrayAdapter<Symbol> implements View.OnClickL
             viewHolder.txtChPer = (TextView) convertView.findViewById(R.id.chPer);
             viewHolder.txtLast = (TextView) convertView.findViewById(R.id.last);
 
-            result=convertView;
-
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
-            result=convertView;
         }
 
         viewHolder.txtName.setText(dataModel.getName());
-        viewHolder.txtChPer.setText(dataModel.getChangePercent());
-        viewHolder.txtLast.setText(dataModel.getLast());
+        viewHolder.txtChPer.setText(String.valueOf(dataModel.getChangePercent()));
+        viewHolder.txtLast.setText(String.valueOf(dataModel.getLast()));
         // Return the completed view to render on screen
         return convertView;
     }

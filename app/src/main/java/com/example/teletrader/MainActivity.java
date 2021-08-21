@@ -14,6 +14,7 @@ import com.example.teletrader.api.Parser;
 import com.example.teletrader.ui.main.CustomAdapter;
 import com.example.teletrader.ui.main.Symbol;
 
+import java.util.ArrayList;
 import java.util.List;
 //import com.example.teletrader.ui.main.MainFragment;
 
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     TextView textView;
-    List<Symbol> listItem;
+    List<Symbol> listItem = new ArrayList<Symbol>();
+            //new Symbol("Huawei", 1, 2, 3, 4, 5, 6), new Symbol("Samsung", 2, 4, 6, 7, 8, 6), new Symbol("dsjkfnghs", 3, 4, 4, 4, 5, 6) );
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +46,13 @@ public class MainActivity extends AppCompatActivity {
         final CustomAdapter adapter = new CustomAdapter(listItem, getApplicationContext());
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+/*        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // TODO Auto-generated method stub
-                String value=adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),value,Toast.LENGTH_SHORT).show();
+                //String value=adapter.getItem(position);SHORT).show();
 
             }
-        });
+        });*/
     }
 }
