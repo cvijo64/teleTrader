@@ -10,8 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.teletrader.api.Parser;
 import com.example.teletrader.ui.main.CustomAdapter;
+import com.example.teletrader.ui.main.FetchDataTask;
 import com.example.teletrader.ui.main.Symbol;
 
 import java.util.ArrayList;
@@ -42,11 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         listView=(ListView)findViewById(R.id.listView);
         textView=(TextView)findViewById(R.id.textView);
-        listItem = Parser.fetchData();
-        final CustomAdapter adapter = new CustomAdapter(listItem, getApplicationContext());
-        listView.setAdapter(adapter);
+        //listItem = Parser.fetchData();
+        new FetchDataTask(getApplicationContext(), listView).execute();
 
-/*        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*  listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // TODO Auto-generated method stub

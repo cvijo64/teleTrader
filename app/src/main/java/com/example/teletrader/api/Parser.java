@@ -1,3 +1,4 @@
+/*
 package com.example.teletrader.api;
 
 import com.example.teletrader.ui.main.Symbol;
@@ -50,3 +51,4 @@ public class Parser {
         return symbols;
     }
 }
+*/

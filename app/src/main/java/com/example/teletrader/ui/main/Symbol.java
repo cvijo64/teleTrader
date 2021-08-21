@@ -1,58 +1,58 @@
 package com.example.teletrader.ui.main;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class Symbol {
     String name;
-    int high;
-    int last;
-    int low;
-    int ask;
-    int changePercent;
-    int bid;
+    double high;
+    double last;
+    double low;
+    double ask;
+    double changePercent;
+    double bid;
 
-    public Symbol(JSONObject symbol, JSONObject quote) throws JSONException {
-        this.name = symbol.getString("name");
+    public Symbol(JsonObject symbol, JsonObject quote) {
+        this.name = symbol.get("-name").getAsString();
 
-        if (symbol.has("high")) {
-            this.setHigh(quote.getInt("high"));
-        } else {
+        if(quote.has("-high")) {
+            this.setHigh(quote.get("-high").getAsDouble());
+        }else {
             this.setHigh(-1);
         }
 
-        if (symbol.has("last")) {
-            this.setHigh(quote.getInt("last"));
-        } else {
+        if(quote.has("-last")) {
+            this.setLast(quote.get("-last").getAsDouble());
+        }else {
+            this.setLast(-1);
+        }
+
+        if(quote.has("-low")) {
+            this.setHigh(quote.get("-low").getAsDouble());
+        }else {
             this.setHigh(-1);
         }
 
-        if (symbol.has("low")) {
-            this.setHigh(quote.getInt("low"));
-        } else {
+        if(quote.has("-ask")) {
+            this.setHigh(quote.get("-ask").getAsDouble());
+        }else {
             this.setHigh(-1);
         }
 
-        if (symbol.has("ask")) {
-            this.setHigh(quote.getInt("ask"));
-        } else {
-            this.setHigh(-1);
+        if(quote.has("-changePercent")) {
+            this.setChangePercent(quote.get("-changePercent").getAsDouble());
+        }else {
+            this.setChangePercent(-1);
         }
 
-        if (symbol.has("changePercent")) {
-            this.setHigh(quote.getInt("changePercent"));
-        } else {
-            this.setHigh(-1);
-        }
-
-        if (symbol.has("bid")) {
-            this.setHigh(quote.getInt("bid"));
-        } else {
+        if(quote.has("-bid")) {
+            this.setHigh(quote.get("-bid").getAsDouble());
+        }else {
             this.setHigh(-1);
         }
     }
 
-    public Symbol(String name, int high, int last, int low, int ask, int changePercent, int bid) {
+    public Symbol(String name, double high, double last, double low, double ask, double changePercent, double bid) {
         this.name = name;
         this.high = high;
         this.last = last;
@@ -70,51 +70,51 @@ public class Symbol {
         this.name = name;
     }
 
-    public int getHigh() {
+    public double getHigh() {
         return high;
     }
 
-    public void setHigh(int high) {
+    public void setHigh(double high) {
         this.high = high;
     }
 
-    public int getLast() {
+    public double getLast() {
         return last;
     }
 
-    public void setLast(int last) {
+    public void setLast(double last) {
         this.last = last;
     }
 
-    public int getLow() {
+    public double getLow() {
         return low;
     }
 
-    public void setLow(int low) {
+    public void setLow(double low) {
         this.low = low;
     }
 
-    public int getAsk() {
+    public double getAsk() {
         return ask;
     }
 
-    public void setAsk(int ask) {
+    public void setAsk(double ask) {
         this.ask = ask;
     }
 
-    public int getChangePercent() {
+    public double getChangePercent() {
         return changePercent;
     }
 
-    public void setChangePercent(int changePercent) {
+    public void setChangePercent(double changePercent) {
         this.changePercent = changePercent;
     }
 
-    public int getBid() {
+    public double getBid() {
         return bid;
     }
 
-    public void setBid(int bid) {
+    public void setBid(double bid) {
         this.bid = bid;
     }
 }
