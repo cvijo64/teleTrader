@@ -62,7 +62,7 @@ public class FetchDataTask  extends AsyncTask<Void, Void, String> {
             super.onPostExecute(result);
 
             String response = result;
-            List<Symbol> symbols = null;
+            ListSymbols symbols = ListSymbols.getInstance();
             JsonObject json;
             try {
                 String jsonString = U.xmlToJson(response);
@@ -71,7 +71,6 @@ public class FetchDataTask  extends AsyncTask<Void, Void, String> {
 
 
                 JsonArray symbolList = json.getAsJsonObject("Result").getAsJsonObject("SymbolList").getAsJsonArray("Symbol");
-                symbols = new ArrayList<Symbol>();
                 for(int i = 0; i < symbolList.size(); i++) {
                     JsonObject symbolObj = (JsonObject) symbolList.get(i);
                     JsonObject quote =  symbolObj.getAsJsonObject("Quote");

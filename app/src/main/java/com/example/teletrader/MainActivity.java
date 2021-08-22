@@ -2,8 +2,11 @@ package com.example.teletrader;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.teletrader.ui.main.FetchDataTask;
@@ -16,6 +19,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
+    RadioGroup radioGroup;
+    RadioButton radioButtonP, radioButtonHL, radioButtonPicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,39 +31,29 @@ public class MainActivity extends AppCompatActivity {
         //listItem = Parser.fetchData();
         new FetchDataTask(getApplicationContext(), listView).execute();
 
-        /*  listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // TODO Auto-generated method stub
-                //String value=adapter.getItem(position);SHORT).show();
+        radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
+        radioButtonP=(RadioButton)findViewById(R.id.Percentage);
+        radioButtonHL=(RadioButton)findViewById(R.id.High_Low);
+        radioButtonPicture=(RadioButton)findViewById(R.id.News);
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.Percentage)
+                {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+
+                }
+                else
+                if (checkedId == R.id.High_Low ) {
+                    Intent intent1 = new Intent(getApplicationContext(), HihgLowActivity.class);
+                    startActivity(intent1);
+
+                }
             }
-        });*/
+        });
 
 
     }
-
-/*    public void addListenerOnRadioGroup() {
-
-        radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
-        btnDisplay = (Button) findViewById(R.id.btnDisplay);
-
-        btnDisplay.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                // get selected radio button from radioGroup
-                int selectedId = radioSexGroup.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-                radioSexButton = (RadioButton) findViewById(selectedId);
-
-                Toast.makeText(MyAndroidAppActivity.this,
-                        radioSexButton.getText(), Toast.LENGTH_SHORT).show();
-
-            }
-
-        });
-    }*/
 }

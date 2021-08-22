@@ -24,19 +24,19 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radio_three"
+            android:id="@+id/News"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
-            android:text="News" />
+            android:text="News"/>
 
         <RadioButton
-            android:id="@+id/radio_two"
+            android:id="@+id/High_Low"
             android:layout_width="144dp"
             android:layout_height="wrap_content"
-            android:text="High_Low" />
+            android:text="High_Low"/>
 
         <RadioButton
-            android:id="@+id/radio_one"
+            android:id="@+id/Percentage"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:checked="true"

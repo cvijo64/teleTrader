@@ -12,6 +12,7 @@ public class Symbol {
     double changePercent;
     double bid;
 
+
     public Symbol(JsonObject symbol, JsonObject quote) {
         this.name = symbol.get("-name").getAsString();
 
