@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TeleTrader">
         <activity
+            android:name=".HihgLowActivity"
+            android:exported="true"
+            android:label="@string/title_activity_hihg_low"
+            android:theme="@style/Theme.TeleTrader.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

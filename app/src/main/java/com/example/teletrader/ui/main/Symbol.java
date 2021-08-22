@@ -1,7 +1,7 @@
 package com.example.teletrader.ui.main;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import java.lang.Math;
 
 public class Symbol {
     String name;
@@ -28,15 +28,15 @@ public class Symbol {
         }
 
         if(quote.has("-low")) {
-            this.setHigh(quote.get("-low").getAsDouble());
+            this.setLow(quote.get("-low").getAsDouble());
         }else {
-            this.setHigh(-1);
+            this.setLow(-1);
         }
 
         if(quote.has("-ask")) {
-            this.setHigh(quote.get("-ask").getAsDouble());
+            this.setAsk(quote.get("-ask").getAsDouble());
         }else {
-            this.setHigh(-1);
+            this.setAsk(-1);
         }
 
         if(quote.has("-changePercent")) {
@@ -46,9 +46,9 @@ public class Symbol {
         }
 
         if(quote.has("-bid")) {
-            this.setHigh(quote.get("-bid").getAsDouble());
+            this.setBid(quote.get("-bid").getAsDouble());
         }else {
-            this.setHigh(-1);
+            this.setBid(-1);
         }
     }
 
@@ -71,15 +71,15 @@ public class Symbol {
     }
 
     public double getHigh() {
-        return high;
+        return Math.floor(high * 100) / 100;
     }
 
     public void setHigh(double high) {
         this.high = high;
     }
 
-    public double getLast() {
-        return last;
+    public double getLast(){
+        return Math.floor(last * 100) / 100;
     }
 
     public void setLast(double last) {
@@ -87,7 +87,7 @@ public class Symbol {
     }
 
     public double getLow() {
-        return low;
+        return Math.floor(low * 100) / 100;
     }
 
     public void setLow(double low) {
@@ -95,7 +95,7 @@ public class Symbol {
     }
 
     public double getAsk() {
-        return ask;
+        return Math.floor(ask * 100) / 100;
     }
 
     public void setAsk(double ask) {
@@ -103,7 +103,7 @@ public class Symbol {
     }
 
     public double getChangePercent() {
-        return changePercent;
+        return Math.floor(changePercent * 100) / 100;
     }
 
     public void setChangePercent(double changePercent) {
@@ -111,7 +111,7 @@ public class Symbol {
     }
 
     public double getBid() {
-        return bid;
+        return Math.floor(bid * 100) / 100;
     }
 
     public void setBid(double bid) {

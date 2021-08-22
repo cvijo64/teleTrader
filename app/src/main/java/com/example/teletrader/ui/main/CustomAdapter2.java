@@ -1,7 +1,5 @@
 package com.example.teletrader.ui.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -15,39 +13,30 @@ import com.example.teletrader.R;
 
 import java.util.List;
 
-public class CustomAdapter extends ArrayAdapter<Symbol> implements View.OnClickListener{
+public class CustomAdapter2 extends ArrayAdapter<Symbol> implements View.OnClickListener{
 
     private List<Symbol> dataSet;
     Context mContext;
 
+    @Override
+    public void onClick(View view) {
+
+    }
+
     // View lookup cache
     private static class ViewHolder {
         TextView txtName;
-        TextView txtChPer;
-        TextView txtLast;
+        TextView txtBid;
+        TextView txtAsk;
+        TextView txtHigh;
+        TextView txtLow;
     }
 
-    public CustomAdapter(List<Symbol> data, Context context) {
-        super(context, R.layout.mylist2, data);
+    public CustomAdapter2(List<Symbol> data, Context context) {
+        super(context, R.layout.mylist1, data);
         this.dataSet = data;
-        this.mContext=context;
+        this.mContext = context;
 
-    }
-
-    @Override
-    public void onClick(View v) {
-
-/*        int position=(Integer) v.getTag();
-        Object object= getItem(position);
-        Data dataModel=(Data)object;
-
-        switch (v.getId())
-        {
-            case R.id.item_info:
-                Snackbar.make(v, "Release date " +data.getFeature(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
-                break;
-        }*/
     }
 
     private int lastPosition = -1;
@@ -66,10 +55,12 @@ public class CustomAdapter extends ArrayAdapter<Symbol> implements View.OnClickL
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.mylist2, parent, false);
+            convertView = inflater.inflate(R.layout.mylist1, parent, false);
             viewHolder.txtName = (TextView) convertView.findViewById(R.id.name);
-            viewHolder.txtChPer = (TextView) convertView.findViewById(R.id.chPer);
-            viewHolder.txtLast = (TextView) convertView.findViewById(R.id.last);
+            viewHolder.txtBid = (TextView) convertView.findViewById(R.id.bid);
+            viewHolder.txtAsk = (TextView) convertView.findViewById(R.id.ask);
+            viewHolder.txtHigh = (TextView) convertView.findViewById(R.id.high);
+            viewHolder.txtLow = (TextView) convertView.findViewById(R.id.low);
 
             convertView.setTag(viewHolder);
         } else {
@@ -77,15 +68,16 @@ public class CustomAdapter extends ArrayAdapter<Symbol> implements View.OnClickL
         }
 
         viewHolder.txtName.setText(dataModel.getName());
-        double value = dataModel.getChangePercent();
-        viewHolder.txtChPer.setText(String.valueOf(value));
-        if(value > 0)
-            viewHolder.txtChPer.setTextColor(Color.GREEN);
-        else if(value < 0)
-            viewHolder.txtChPer.setTextColor(Color.RED);
+        viewHolder.txtHigh.setText(String.valueOf(dataModel.getHigh()));
+        viewHolder.txtLow.setText(String.valueOf(dataModel.getLow()));
+        if(dataModel.getBid() == -1)
+            viewHolder.txtBid.setText("-");
         else
-            viewHolder.txtChPer.setTextColor(Color.BLACK);
-        viewHolder.txtLast.setText(String.valueOf(dataModel.getLast()));
+            viewHolder.txtBid.setText(String.valueOf(dataModel.getBid()));
+        if(dataModel.getAsk() == -1)
+            viewHolder.txtAsk.setText("-");
+        else
+            viewHolder.txtAsk.setText(String.valueOf(dataModel.getAsk()));
         // Return the completed view to render on screen
         return convertView;
     }

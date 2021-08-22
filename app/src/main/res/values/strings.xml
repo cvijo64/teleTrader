@@ -1,29 +1,13 @@
 <resources>
-    <string name="app_name">ListView</string>
-    <string-array name="array_technology">
-        <item>Android</item>
-        <item>Java</item>
-        <item>Php</item>
-        <item>Hadoop</item>
-        <item>Sap</item>
-        <item>Python</item>
-        <item>Ajax</item>
-        <item>C++</item>
-        <item>Ruby</item>
-        <item>Rails</item>
-        <item>.Net</item>
-        <item>Perl</item>
-        <item>Androi2d</item>
-        <item>Java2</item>
-        <item>Php2</item>
-        <item>Hadoop2</item>
-        <item>Sap2</item>
-        <item>Python2</item>
-        <item>Ajax2</item>
-        <item>C++2</item>
-        <item>Ruby2</item>
-        <item>Rails2</item>
-        <item>.Net2</item>
-        <item>Perl2</item>
-    </string-array>
+    <string name="app_name">TeleTrader</string>
+    <string name="title_activity_hihg_low">HihgLowActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
 </resources>

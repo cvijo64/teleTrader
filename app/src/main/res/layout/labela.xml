@@ -1,47 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="113dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:text="TeleTrader" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="694dp"
-        android:layout_gravity="bottom">
-
-    </ListView>
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radio_three"
-            android:layout_width="131dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="News" />
 
         <RadioButton
             android:id="@+id/radio_two"
-            android:layout_width="144dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="High_Low" />
 
         <RadioButton
             android:id="@+id/radio_one"
-            android:layout_width="131dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Percentage" />
 
     </RadioGroup>
 
-</FrameLayout>
+</LinearLayout>
