@@ -12,35 +12,69 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="694dp"
-        android:layout_gravity="bottom">
-
-    </ListView>
+        android:layout_height="706dp"
+        android:layout_gravity="bottom"></ListView>
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/cardview_dark_background"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/News"
+            android:textColor="@color/purple_200"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:text="News"/>
 
         <RadioButton
             android:id="@+id/High_Low"
-            android:layout_width="144dp"
+            android:textColor="@color/purple_200"
+            android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:text="High_Low"/>
 
         <RadioButton
             android:id="@+id/Percentage"
+            android:textColor="@color/purple_200"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Percentage" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioSort"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/cardview_dark_background"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+
+        <RadioButton
+            android:id="@+id/unsort"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:text="Default"
+            android:checked="true"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/normal_sort"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:text="Asc"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/reverse_sort"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:text="Desc"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 

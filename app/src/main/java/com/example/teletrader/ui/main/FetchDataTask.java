@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.github.underscore.lodash.U;
 import com.google.gson.JsonArray;
@@ -20,10 +18,12 @@ public class FetchDataTask  extends AsyncTask<Void, Void, String> {
 
         private final Context context;
         private final ListView listView;
+        private int adapterNum;
 
-        public FetchDataTask(Context context, ListView listView) {
+        public FetchDataTask(Context context, ListView listView, int aNum) {
             this.context = context;
             this.listView = listView;
+            this.adapterNum = aNum;
         }
 
         @Override
@@ -81,8 +81,14 @@ public class FetchDataTask  extends AsyncTask<Void, Void, String> {
                 e.printStackTrace();
             }
 
-            final CustomAdapter adapter = new CustomAdapter(symbols, this.context);
-            listView.setAdapter(adapter);
+            if(adapterNum ==1) {
+                final CustomAdapter adapter = new CustomAdapter(symbols, this.context);
+                listView.setAdapter(adapter);
+            }
+            else{
+                final CustomAdapter2 adapter = new CustomAdapter2(symbols, this.context);
+                listView.setAdapter(adapter);
+            }
         }
     }
 

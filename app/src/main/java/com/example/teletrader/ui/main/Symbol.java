@@ -3,7 +3,7 @@ package com.example.teletrader.ui.main;
 import com.google.gson.JsonObject;
 import java.lang.Math;
 
-public class Symbol {
+public class Symbol implements Comparable< Symbol >{
     String name;
     double high;
     double last;
@@ -117,5 +117,9 @@ public class Symbol {
 
     public void setBid(double bid) {
         this.bid = bid;
+    }
+
+    public int compareTo(Symbol o) {
+        return this.getName().compareTo(o.getName());
     }
 }
