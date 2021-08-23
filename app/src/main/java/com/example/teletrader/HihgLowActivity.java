@@ -3,6 +3,7 @@ package com.example.teletrader;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.teletrader.ui.main.CustomAdapter;
 import com.example.teletrader.ui.main.CustomAdapter2;
 import com.example.teletrader.ui.main.FetchDataTask;
 import com.example.teletrader.ui.main.ListSymbols;
@@ -10,7 +11,6 @@ import com.example.teletrader.ui.main.Sorter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,6 +40,10 @@ public class HihgLowActivity extends AppCompatActivity {
         radioButtonHL=(RadioButton)findViewById(R.id.High_Low);
         radioButtonPicture=(RadioButton)findViewById(R.id.News);
 
+        radioButtonHL.setChecked(true);
+        radioButtonP.setChecked(false);
+        radioButtonPicture.setChecked(false);
+
         radioSort=(RadioGroup)findViewById(R.id.radioSort);
         radioButtonD=(RadioButton)findViewById(R.id.unsort);
         radioButtonAsc=(RadioButton)findViewById(R.id.normal_sort);
@@ -50,9 +54,11 @@ public class HihgLowActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(checkedId == R.id.Percentage)
                 {
-                    symbols.clear();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
+                    final CustomAdapter adapter = new CustomAdapter(symbols, getApplicationContext());
+                    listView.setAdapter(adapter);
+                    //symbols.clear();
+                    //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    //startActivity(intent);
                 }
                 else
                 if (checkedId == R.id.High_Low ) {

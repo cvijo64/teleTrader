@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         radioButtonHL=(RadioButton)findViewById(R.id.High_Low);
         radioButtonPicture=(RadioButton)findViewById(R.id.News);
 
+        radioButtonHL.setChecked(false);
+        radioButtonP.setChecked(true);
+        radioButtonPicture.setChecked(false);
+
         radioSort=(RadioGroup)findViewById(R.id.radioSort);
         radioButtonD=(RadioButton)findViewById(R.id.unsort);
         radioButtonAsc=(RadioButton)findViewById(R.id.normal_sort);
@@ -52,18 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-                    radioButtonP.setChecked(true);
                 }
                 else
                 if (checkedId == R.id.High_Low ) {
                     Intent intent1 = new Intent(getApplicationContext(), HihgLowActivity.class);
                     startActivity(intent1);
-                    radioButtonHL.setChecked(true);
                 }
             }
         });
-
-
 
         radioSort.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
